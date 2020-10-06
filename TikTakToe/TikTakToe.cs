@@ -98,7 +98,7 @@ namespace TikTakToe
         {
             while(true)
             {
-                Console.WriteLine("Please enter [start <player>] or [start <player1> <player2>] to start the game. " +
+                Console.WriteLine("Please enter [start <player>] or [start <player1> <player2>] to start the game. Example - start hard user" +
                     "\nPlayer options: " +
                     "\n\t1. user" +
                     "\n\t2. easy" +
@@ -223,8 +223,14 @@ namespace TikTakToe
                 "| {1 3} {2 3} {3 3} |\n" +
                 "| {1 2} {2 2} {3 2} |\n" +
                 "| {1 1} {2 1} {3 1} |\n" +
-                "---------------------");
+                "---------------------\n" +
+                "You can enter R or r to restart");
             string turn = Console.ReadLine();
+            if (turn == "R" || turn == "r")
+            {
+                cells = "_________";
+                return;
+            }
             foreach (string coordinate in Get_Not_Occupied_Coordinates(cells))
             {
                 if (coordinate == turn)
